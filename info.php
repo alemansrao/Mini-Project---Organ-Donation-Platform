@@ -118,7 +118,7 @@ if ($result) {
     </nav>
     <div class="container">
         <h1><?php echo $name; ?></h1>
-        <img src="images\alemansrao.jpg" alt="">
+        <img src="<?php echo $fafa;?>" alt="">
         <h5 id="id">User ID : <?php echo $id; ?></h5>
 
         <h4 id="email">Email : <?php echo $email;?></h4>
