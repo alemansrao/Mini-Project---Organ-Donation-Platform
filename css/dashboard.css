@@ -1,0 +1,17 @@
+.navbar{
+padding-left: 30px;
+}
+body{
+background-image: url("../resources/bg.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+#avatar{
+    border-radius: 50%;
+    transition: border-radius 0.5s;
+}
+#avatar:hover{
+    border-radius: 0px;
+    /* width: 200px; */
+    transition: border-radius 0.5s;
+}

@@ -1,0 +1,41 @@
+h6 {
+  display: inline;
+  font-size: small;
+}
+.form-check {
+  padding-right: 10px;
+  display: inline-block;
+}
+body {
+  background-color: #333;
+}
+#pa {
+  padding-bottom: 20px;
+}
+#paUp {
+  padding-top: 20px;
+}
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f4f4f4;
+  padding: 30px;
+  /* border-radius: 15px; */
+  z-index: 10;
+}
+
+#userExists {
+  margin-left: 25px;
+  padding: 8px;
+  border-radius: 10px;
+  display: inline;
+  color: rgb(255, 0, 0);
+  background-color: rgb(195, 195, 195);
+  display: none;
+}
+
+#php{
+  color: rgb(255, 0, 0);
+}

@@ -1,0 +1,86 @@
+.navbar {
+  padding-left: 30px;
+}
+body {
+  background-image: url("https://wallpapercave.com/wp/wp4711651.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#avatar {
+  border-radius: 50%;
+  transition: border-radius 0.5s;
+}
+#avatar:hover {
+  border-radius: 0px;
+  /* width: 200px; */
+  transition: border-radius 0.5s;
+}
+.container {
+  border-radius: 20px;
+  height: 500px;
+  top: 55%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.container img {
+  width: 175px;
+  position: absolute;
+  left: 930px;
+  border-radius: 15px;
+  top: 40px;
+}
+.container h1 {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  /* color: #f4f4f4; */
+}
+h4,h5{color:#333;}
+#id {
+  position: absolute;
+  /* color: #f4f4f4; */
+  left: 40px;
+  top: 80px;
+}
+#email {
+  position: absolute;
+  left: 40px;
+  top: 140px;
+}
+#address {
+  position: absolute;
+  left: 40px;
+  top: 180px;
+}
+#pincode {
+  position: absolute;
+  left: 40px;
+  top: 220px;
+}
+#phone {
+  position: absolute;
+  left: 40px;
+  top: 260px;
+}
+
+#donor{
+  position: absolute;
+  left: 40px;
+  top: 330px;
+}
+#doctor{
+  position: absolute;
+  left: 40px;
+  top: 360px;
+}
+#ambulance{
+  position: absolute;
+  left: 40px;
+  top: 390px;
+}
+
+
