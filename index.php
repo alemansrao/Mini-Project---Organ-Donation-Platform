@@ -44,8 +44,9 @@ $create = "create table if not exists requests_table(
 );";
 if ($conn->query($create) === TRUE) {
     // echo "details_table created successfully";
+} else {
+    output(mysqli_error($conn));
 }
-else{output(mysqli_error($conn));}
 
 
 
@@ -75,10 +76,9 @@ if (isset($_POST['submit'])) {
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $_SESSION['username'] = $username;
-            // output data of each row
-            // while ($row = mysqli_fetch_assoc($result)) {
-            //     echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
-            // }
+            //setting cookies
+            setcookie("last_user", $username, time() + (86400 * 30), "/"); 
+
             header('Location: ./dashboard.php');
         } else {
             $invUser = "Yes";
@@ -87,8 +87,7 @@ if (isset($_POST['submit'])) {
         echo mysqli_error($conn);
     }
 }
-if(isset($_GET['registered']))
-{
+if (isset($_GET['registered'])) {
     output("Registered Successfully<br>Login with your credentials !");
 }
 
@@ -111,12 +110,14 @@ if(isset($_GET['registered']))
 
 <body>
     <div class="container" id="login">
-    	<h1>Helping-hands Login</h1>
-    	<br>
+        <h1>Helping-hands Login</h1>
+        <br>
         <form action="" method="post">
             <div class="mb-3">
                 <label for="userid" class="form-label">Aadhaar No.</label>
-                <input name="userid" type="text" class="form-control" id="userid" placeholder="Enter your Aadhaar No.">
+                <input name="userid" type="text" class="form-control" id="userid" placeholder="Enter your Aadhaar No." <?php if(isset($_COOKIE['last_user'])) {
+                    echo "value='" . $_COOKIE['last_user'] . "'";
+                }?>>
             </div>
             <div class="mb-3">
                 <label for="pass" class="form-label">Password</label>
