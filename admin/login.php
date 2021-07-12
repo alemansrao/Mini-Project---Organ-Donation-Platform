@@ -1,5 +1,5 @@
 <?php
-include "db.php";
+include "../db.php";
 session_start();
 $create = "create table if not exists user_table(username varchar(20) primary key,
     password varchar(40)
@@ -10,6 +10,14 @@ if ($conn->query($create) === TRUE) {
 if (isset($_SESSION['username'])) {
     // header('Location: ./dashboard.php');
 }
+
+
+$create1 = "create table if not exists admin_table(username varchar(20) primary key,
+    password varchar(40)
+);";
+if ($conn->query($create1) === TRUE) {
+}
+
 
 $create = "create table if not exists details_table(
     username varchar(20) primary key,
@@ -70,7 +78,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $pass_hash = md5($password);
 
-    $checkUser = "select * from user_table where username = '$username' and password = '$pass_hash';";
+    $checkUser = "select * from admin_table where username = '$username' and password = '$pass_hash';";
     $result = mysqli_query($conn, $checkUser);
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
@@ -79,17 +87,13 @@ if (isset($_POST['submit'])) {
             // while ($row = mysqli_fetch_assoc($result)) {
             //     echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
             // }
-            header('Location: ./dashboard.php');
+            header('Location: ./');
         } else {
             $invUser = "Yes";
         }
     } else {
         echo mysqli_error($conn);
     }
-}
-if(isset($_GET['registered']))
-{
-    output("Registered Successfully<br>Login with your credentials !");
 }
 
 
@@ -103,15 +107,15 @@ if(isset($_GET['registered']))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="shortcut icon" href="./resources/heart.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="shortcut icon" href="../resources/heart.png" type="image/x-icon">
     <title>Login</title>
 </head>
 
 <body>
     <div class="container" id="login">
-    	<h1>Helping-hands Login</h1>
+    	<h1>Admin Login</h1>
     	<br>
         <form action="" method="post">
             <div class="mb-3">
@@ -125,7 +129,7 @@ if(isset($_GET['registered']))
             <?php if (isset($invUser)) echo "<p style=\"color:red\">Invalid Credentials. Try Again</p>"; ?>
             <div class="mb-3">
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                <a href="./register.php">Click Here to register</a>
+                <a href="../register.php">Click Here to register</a>
             </div>
         </form>
     </div>
